@@ -1,8 +1,8 @@
 void setup (){
   size (500,500);
   noStroke ();
-  strokeCap (SQUARE); 
-  background (#B9CB90);
+  strokeCap (ROUND); 
+
 }
 // Assignment 1a. A Line Piece 
 //Make a Maze 
@@ -10,6 +10,7 @@ void setup (){
 void draw (){
   stroke (0);
   strokeWeight (7);
+  background (#B9CB90);
 // IDEA - Diamond Shaped Maze
 // Base Horizontal Lines
   line(120,100,430,100);
@@ -33,9 +34,9 @@ void draw (){
 // Top Maze TR Triangle 2
   triangle(260,100,290,130,320,100);
 // Bottom Maze Horizontal Lines 
-  line (270,330,410,150);
-  line (220,345,345,180);
-  line (205,310,305,180);
+  line (270,327,410,150);
+  line (220,340,345,180);
+  line (205,315,305,180);
   line (185,280,270,170);
   line (245,150,180,235);
   line (195,170,150,230);
