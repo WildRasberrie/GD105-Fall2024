@@ -11,7 +11,7 @@ void draw () {
   // Dinosaur head
   ellipse (467, 155, 374, 200);
   rect (302, 170, 150, 300);
-  rect (445, 319, 126, 29);
+  rect (433, 317, 127, 36);
   //Dinosaur Arms
   strokeWeight (60);
   line (500, 500, 652, 500);
