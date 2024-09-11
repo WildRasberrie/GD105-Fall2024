@@ -1,12 +1,29 @@
 // GD 105 Unit 1: A1 Assignment 
-
+PFont courierbold;
 //The Text Piece - Setting up (size, background, setup/draw)
 void setup (){
   size (500,500);
-  background (#F59CEF);
+  strokeCap (ROUND);
+  background (#BFF2E0);
+  fill (0);
+  courierbold = loadFont ("CourierNewPS-BoldMT-80.vlw");
+  textFont (courierbold);
+  textSize (30);
+  textAlign (LEFT,CENTER);
+  text ("A Crossword Puzzle",70,50);
+  textAlign (LEFT, BOTTOM);
+  textSize (20);
+  text ("HINTS:", 30, 300);
+  textSize (15);
+  text ("1. A fruit that\nis blue\n(top, across)\n2. Your mind\n(left, down)\n3. Fruit that is red\n(middle,down)\n4. Another word for lunch\n(bottom,across)\n5.Popular dominican fruit, used for fries\n(bottom)", 30,470);
+  
 }
 //Make a Crossword puzzle
 void draw (){
+//Demostrate line style functions
+  stroke (0);
+  strokeWeight (5);
+
   
 // Creating Vertical Lines
   line (280,100,280,400);
@@ -38,8 +55,8 @@ void draw (){
   line (400,130,70,130);
   line (400,400,250,400);
   line (400,370,250,370);
-  line (350,250,188,250);
-  line (350,280,188,280);
+  line (344,250,191,250);
+  line (344,280,191,280);
   // Creating crossword horizontal lines
   line (280,340,250,340);
   line (280,310,250,310);
@@ -55,11 +72,7 @@ void draw (){
   line (70,220,100,220);
   line (70,250,100,250);
   
-//Demostrate line style functions
-  stroke (0);
-  strokeWeight (7);
-  strokeCap (SQUARE);
-
+// Save File Output
   if(frameCount==1)
     save("outputATextPiece.png");
   }
