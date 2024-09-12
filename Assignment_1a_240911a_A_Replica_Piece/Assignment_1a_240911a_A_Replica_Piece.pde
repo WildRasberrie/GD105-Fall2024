@@ -54,15 +54,14 @@ void draw (){
 //Light cast 
   noStroke();
   fill(255,165);
-  scale(1);
   arc (291,568,226,22,600,603);
-  scale(1);
+  scale(1.0);
   fill(228,141);
   arc (295,576,343,24,600,603);
-  scale(1);
+  scale(1.0);
   fill (204,127);
   arc (316,592,561,36,600,603);
-  scale(1);
+  scale(1.0);
   fill (204,54);
   arc (314,608,779,51,600,603);
 // Light Cast outline  
