@@ -14,23 +14,6 @@ void draw (){
    textAlign (CENTER,CENTER);
    text ("P    X  A  R",500,500);
 // Design Lamp 
-//Base
-  
-  fill (108);
-  stroke (125);
-  arc (293,543,70,12, 56, 231);
-  fill (200);
-  stroke (200);
-  arc (293,540,67,9, 61, 231);
-  fill (109);
-  stroke (108);
-  arc (291,532,13,1,118,155);
-  fill (60);
-  stroke (60);
-  rect(289,523,3,5,113);
-  fill (60);
-  stroke(60);
-  line (249,550,334,551);
  // Lamp Stem
  strokeWeight (5);
  line(292,521,307,513);
@@ -50,34 +33,48 @@ void draw (){
  circle (320,431,62);
  stroke (136,125);
  circle (320,431,30);
-  
 //Light cast (Show use of Transformations)
   noStroke();
-  fill(255,61);  
-  arc (278,566,363,31,600,603);
+  fill(255,57);  
+  arc (307,565,363,29,600,603);
   pushMatrix();
-  fill(255,21); 
-  translate(309,582);
+  fill(255,20); 
+  translate(309,555);
+  scale (-1.2);
+  arc (0,0,226,22,600,603);
+  scale (1.2);
+  arc (0,0,226,22,600,603);
+  scale (1.5);
+  arc (0,0,226,22,600,603);
   scale (1.1);
   arc (0,0,226,22,600,603);
-  scale (1.2);
+  scale (1.1);
   arc (0,0,226,22,600,603);
-  scale (1.2);
-  arc (0,0,226,22,600,603);
-  scale (1.4);
-  arc (0,0,226,22,600,603);
-  scale (1.2);
-  arc (0,0,226,22,600,603);
-  scale (1.0);
+  scale (1.1);
   arc (0,0,226,22,600,603);
   popMatrix ();
 // Light Cast outline  
   fill(255,12);
   stroke (255,50);
   strokeWeight (5);
-  line (338,553,517,564);
-  line (246,550,72,565);
- 
+  line (338,553,442,560);
+  line (246,554,127,559);
+//Base
+  fill (108);
+  stroke (125);
+  arc (293,543,70,12, 56, 231);
+  fill (200);
+  stroke (200);
+  arc (293,540,67,9, 61, 231);
+  fill (109);
+  stroke (108);
+  arc (291,532,13,1,118,155);
+  fill (60);
+  stroke (60);
+  rect(289,523,3,5,113);
+  fill (60);
+  stroke(60);
+  line (249,550,334,551);
  if(frameCount ==1)
    save("A_Replica_Piece.png");
 }
