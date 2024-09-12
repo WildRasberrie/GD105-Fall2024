@@ -51,25 +51,32 @@ void draw (){
  stroke (136,125);
  circle (320,431,30);
   
-//Light cast 
+//Light cast (Show use of Transformations)
   noStroke();
-  fill(255,165);
-  arc (291,568,226,22,600,603);
-  scale(1.0);
-  fill(228,141);
-  arc (295,576,343,24,600,603);
-  scale(1.0);
-  fill (204,127);
-  arc (316,592,561,36,600,603);
-  scale(1.0);
-  fill (204,54);
-  arc (314,608,779,51,600,603);
+  fill(255,61);  
+  arc (278,566,363,31,600,603);
+  pushMatrix();
+  fill(255,21); 
+  translate(309,582);
+  scale (1.1);
+  arc (0,0,226,22,600,603);
+  scale (1.2);
+  arc (0,0,226,22,600,603);
+  scale (1.2);
+  arc (0,0,226,22,600,603);
+  scale (1.4);
+  arc (0,0,226,22,600,603);
+  scale (1.2);
+  arc (0,0,226,22,600,603);
+  scale (1.0);
+  arc (0,0,226,22,600,603);
+  popMatrix ();
 // Light Cast outline  
   fill(255,12);
   stroke (255,50);
   strokeWeight (5);
-  line (379,562,570,587);
-  line (235,559,34,590);
+  line (338,553,517,564);
+  line (246,550,72,565);
  
  if(frameCount ==1)
    save("A_Replica_Piece.png");
