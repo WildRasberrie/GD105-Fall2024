@@ -6,14 +6,18 @@ void setup () {
 }
 void draw () {
   background (180);
+  strokeWeight (60);
   stroke (0);
   fill (0);
   // Dinosaur head
   ellipse (467, 155, 374, 200);
   rect (302, 170, 150, 300);
   rect (433, 317, 127, 36);
+  // Dinosaur Eye 
+  fill (180);
+  circle (433,126,31);
   //Dinosaur Arms
-  strokeWeight (60);
+  fill (0);
   line (500, 500, 652, 500);
   line (622, 500, 622, 566);
   //Dinosaur Tail
