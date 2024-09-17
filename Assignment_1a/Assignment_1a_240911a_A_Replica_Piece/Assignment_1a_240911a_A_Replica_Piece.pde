@@ -5,34 +5,18 @@ void setup () {
   size (1000, 1000);
   strokeCap (ROUND);
   noStroke ();
+  strokeWeight (5);
+  fill (0);
   funfont = loadFont ("Sylfaen-150.vlw");
 }
 void draw () {
-  background (#a8bfd7);
-  fill (0);
+  background (#a8bfd7); 
   textFont (funfont);
   textAlign (CENTER, CENTER);
+  fill (0);
   text ("P    X  A  R", 500, 500);
   // Design Lamp
-  // Lamp Stem
-  strokeWeight (5);
-  line(292, 521, 307, 513);
-  line(290, 527, 305, 521);
-  line(281, 505, 296, 499);
-  line(297, 501, 307, 519);
-  line(289, 525, 282, 508);
-  line(321, 475, 322, 457);
-  line(298, 498, 319, 478);
-  line(281, 502, 283, 488);
-  line(284, 488, 313, 461);
-  stroke (136);
-  line(288, 488, 298, 493);
-  //Lamp Head
-  fill (#FCFCE0);
-  strokeWeight (2);
-  circle (320, 431, 62);
-  stroke (136, 125);
-  circle (320, 431, 30);
+ 
   //Light cast (Show use of Transformations)
   noStroke();
   fill(255, 57);
@@ -59,6 +43,20 @@ void draw () {
   strokeWeight (5);
   line (338, 553, 442, 560);
   line (246, 554, 127, 559);
+  // Lamp Stem
+  strokeWeight (5);
+  stroke (0);
+  line(292, 521, 307, 513);
+  line(290, 527, 305, 521);
+  line(281, 505, 296, 499);
+  line(297, 501, 307, 519);
+  line(289, 525, 282, 508);
+  line(321, 475, 322, 457);
+  line(298, 498, 319, 478);
+  line(281, 502, 283, 488);
+  line(284, 488, 313, 461);
+  stroke (136);
+  line(288, 488, 298, 493);
   //Base
   fill (108);
   stroke (125);
@@ -75,6 +73,12 @@ void draw () {
   fill (60);
   stroke(60);
   line (249, 550, 334, 551);
+   //Lamp Head
+  fill (#FCFCE0);
+  strokeWeight (2);
+  circle (320, 431, 62);
+  stroke (136, 125);
+  circle (320, 431, 30);
   if (frameCount ==1)
     save("A_Replica_Piece.png");
 }
