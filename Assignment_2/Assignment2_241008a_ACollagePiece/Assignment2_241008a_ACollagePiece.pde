@@ -31,10 +31,7 @@ void draw (){
   image (cat, 300,300,
          cat.width*size,
          cat.height*size);
-  float rotation;
-  rotation = rotate(TAU*-0.26);
-  image (chair, 250,500,
-         chair.width*rotation,
-         chair.height*rotation);
+ // Rotate Chair 
+  image (chair, 250,500);
 
 }
