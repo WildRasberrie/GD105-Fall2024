@@ -116,8 +116,7 @@ void draw() {
           text(hr+":"+"0"+min+":",-275,-250);
         }else{
             text(hr+":"+min+":",-275,-250);
-            println("THE TIME IS:\t"+hour()+":",minute()+":",second());       
-        } 
-       
+        }
+            println("THE TIME IS:\t"+hour()+":",minute()+":",second());         
     }
 }
