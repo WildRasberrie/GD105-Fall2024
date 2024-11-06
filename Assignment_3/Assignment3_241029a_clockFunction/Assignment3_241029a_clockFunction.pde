@@ -83,6 +83,9 @@ void draw() {
   fill(0);
   textFont(segoe,20);
   text("CHECK TIME:",-293,-284);
+  
+  if(frameCount==1);
+    save("output_clockFunction.png");
 }
     void mouseClicked(){
       if(timeChecked == 0){
