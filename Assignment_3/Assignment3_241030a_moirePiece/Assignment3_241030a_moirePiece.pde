@@ -17,6 +17,8 @@ void draw () {
    for (int i=0;i<n;i++){
      line(600,i/n*570,0,i/n*570);
    }
+  if(frameCount==1);
+    save("output_aMoirePiece.png");
 }
  //have random blue every time program runs
  color pickColor(){
