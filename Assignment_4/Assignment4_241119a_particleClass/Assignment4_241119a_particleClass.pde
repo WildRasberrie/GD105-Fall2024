@@ -1,8 +1,11 @@
+//IDEA: Abstract ice cream cone that melts (multiplies)  over time
+
+//Assignment 4 : A Particle Piece 
 Particle [] p;
 void setup(){
   size(1024,1024);
-  background (180);
-  p=new Particle[150];
+  background (255);
+  p=new Particle[50];
   for (int i=0;i<p.length;i++){
     p[i]=new Particle(width/2.0,height/2.0,100);
   }
@@ -14,4 +17,5 @@ void draw(){
     p[i].display();
     p[i].update();
   }
+
 }
