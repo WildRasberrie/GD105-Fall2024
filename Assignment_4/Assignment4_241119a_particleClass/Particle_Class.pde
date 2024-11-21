@@ -24,6 +24,12 @@ class Particle{
   
   //METHODS
   void display(){
+        //Add more icecream cones w. spacebar
+    if(keyPressed&&key==ENTER){
+      position.x = random(width);
+      position.y= random(height);
+      }
+    
     fill(pinkArray);
     circle(position.x,position.y-150,size+15);
     fill(greenArray);
