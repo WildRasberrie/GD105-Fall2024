@@ -13,36 +13,33 @@ class Particle{
   //CONSTRUCTORS
   Particle(float x,float y, int s){
     position= new PVector(x,y);
-    heading= new PVector(40,50);
+    heading= PVector.random2D().mult(35);
     size=s;
     
-    pinkArray= a[int(random(3))];
+    pinkArray=  a[int(random(3))];
     greenArray= b[int(random(3))];
     blueArray = c[int(random(3))];
-    beigeArray =d[int(random(3))];  
+    beigeArray= d[int(random(3))];  
   }
   
   //METHODS
   void display(){
-        //Add more icecream cones w. spacebar
-    if(keyPressed&&key==ENTER){
-      position.x = random(width);
-      position.y= random(height);
-      }
-    
+    resetMatrix();
+    translate(position.x,position.y);
+    rotate(heading.heading());
+
     fill(pinkArray);
-    circle(position.x,position.y-150,size+15);
+    circle(0,-150,size+15);
     fill(greenArray);
-    circle(position.x,position.y-50,size+25);
+    circle(0,-50,size+25);
     fill(blueArray);
-    circle(position.x,position.y+50,size+35);
+    circle(0,+50,size+35);
     fill(beigeArray);
-    triangle(position.x,position.y+400,
-            position.x+50,position.y+100,
-            position.x-50,position.y+100);
+    triangle(0,+400,
+            +50,+100,
+            -50,+100);
   }
-  
   void update(){
-    position.add(PVector.random2D());
+    position.add(heading.rotate(0.05));
   }
 }

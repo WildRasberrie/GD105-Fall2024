@@ -7,7 +7,7 @@ void setup(){
   background (255);
   p=new Particle[100];
   for (int i=0;i<p.length;i++){
-    p[i]=new Particle(width/2.0,height/2.0,100);
+    p[i]=new Particle(width/2.0,height/2.0,150);
   }
 }
 
