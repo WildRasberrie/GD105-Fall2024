@@ -13,7 +13,7 @@ class Particle{
   //CONSTRUCTORS
   Particle(float x,float y, int s){
     position= new PVector(x,y);
-    heading= new PVector(40,0);
+    heading= new PVector(40,50);
     size=s;
     
     pinkArray= a[int(random(3))];
