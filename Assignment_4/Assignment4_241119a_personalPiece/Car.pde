@@ -1,38 +1,43 @@
 class Car{
-  PVector position;
+  PVector position,a,b;
   float speed;
   PVector heading;
+
   
   //CONSTRUCTORS
   Car(float x, float y){
     position=new PVector(x,y);
     speed=0;
     heading=PVector.fromAngle(0.0);
+    a=new PVector (114.0,0.0);
+    b=new PVector (0.0,100.0);
   }
   
   void display(){
   translate(position.x,position.y);
   rotate(heading.heading());
-  triangle(100,height/6.5,width/6.5,height/6.5,width/6.5,100);
+  triangle(175,100,a.x,b.y,
+          123,68);
   }
  
-  //turning with A & D
-  void update(){
-      
-  if (position.x>width||position.x<-50){
+
+  void update(){  
+  if (a.x>width||a.x<-50){
     //x-axis collision
-    position.x*=1;
+    a.x*=1;
   }
-  if(position.y>height||position.y<-50){
-    position.y*=-1;  
+  if(b.y>height||b.y<-50){
+    //y-axis collision
+    b.y*=-1;  
   }
+    //turning with A & D
     if (keyPressed && key=='d'){
       turn(-TAU/360.0);
     }
     if (keyPressed && key=='a'){
       turn(+TAU/360.0);
     }
-    //accelerate & brake 
+    //accelerate & brake w. W & S 
     if (keyPressed && key =='w'){
      accelerate();
     }else if(keyPressed && key == 's'){
@@ -51,6 +56,6 @@ class Car{
     }
     
     void brake(){
-      speed=max(speed-1.0,0);
+      speed=max(speed-1.0,0.0);
     }
   }
