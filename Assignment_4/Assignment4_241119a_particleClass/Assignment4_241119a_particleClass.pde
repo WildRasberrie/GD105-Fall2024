@@ -16,5 +16,4 @@ void draw(){
     p[i].display();
     p[i].update();
   }
-
 }
