@@ -11,7 +11,7 @@ void setup(){
   p=new PVector (50,550);
   size=30;
   
-  pH=PVector.random2D();
+  pH=PVector.fromAngle(0.0);
   pH.setMag(1.0);//heading with magnitude of 1 and random direction
 }
 
@@ -19,11 +19,11 @@ void draw(){
   background(180);//background to gray
   fill(0);
   m.set(mouseX,mouseY);
-  
-  pH.rotate(radians(5.0));//rotate pHeading 5 degs
-  
-  circle(p.x,p.y,size);//p
   circle(m.x,m.y,size);//m
+
+  pH.rotate(radians(5));//rotate pH 5 degs
+  circle(p.x,p.y,size);//p
+
   
   p.add(pH); 
 }

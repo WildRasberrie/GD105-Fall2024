@@ -14,8 +14,10 @@ class Turtle{
   }
   
   void forward (float amt){
-    PVector oldPos=pos.copy();
+    PVector oldPos=pos.copy();//copies current pos and sets that to OldPos
     pos.add(PVector.mult(heading,amt));
+      //DRAW LINE
+    line(oldPos.x,oldPos.y,pos.x,pos.y);
   }
   
   void teleport(float x, float y){
@@ -25,7 +27,5 @@ class Turtle{
   void teleport(){
     pos.set(random(width),random(height));
   }
-  
-  //DRAW LINE
-  line(oldPos.x,oldPos.y,pos.x,pos,y);
+
 }

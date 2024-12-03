@@ -1,10 +1,16 @@
+Turtle t;
 void setup(){
   size(600,600);
-  
-  Turtle t=new turtle(0,0);
+  background(255);
+
+  t=new Turtle(0,0);
+
 }
 
 void draw(){
-   t.forward(99);
-   turtle.turn(radians(5.0));
+   translate(0,height/2);
+   t.forward(99);//px
+   t.turn(144);//144 degrees
+   
+
 }
