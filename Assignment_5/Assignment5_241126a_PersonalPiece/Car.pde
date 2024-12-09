@@ -14,23 +14,30 @@ float speed;
     strokeWeight(3);
     translate(pos.x,pos.y);
     rotate (direction.heading());
-    triangle(25,0,-25,0,0,50);   
+    triangle(50,0,13,6,19,25);   
   }
    
   void update(){
     
     //Boarder control
     boolean offREdge,offLEdge,offTop,halfwayPoint;
-    offREdge = (pos.x>width);
-    offLEdge = (pos.x<0);
-    offTop = (pos.y<0);
-    halfwayPoint =(pos.y>height/2);
+    offREdge = (pos.x>width-50);
+    offLEdge = (pos.x<50);
+    offTop = (pos.y<50);
+    halfwayPoint =(pos.y>(height/2)-40);
     
-    if(offREdge||offLEdge){
-      pos.x*=-1;
+    if(offREdge){
+      pos.x=width-50;
+      brake();
     }
-    if(offTop||halfwayPoint){
-      pos.y*=-1;
+    if(offLEdge){
+      pos.x=50;
+    }
+    if(offTop){
+      pos.y=50;    
+    }
+    if(halfwayPoint){
+      pos.y=(height/2)-40;  
     }
     
     //Key controls
