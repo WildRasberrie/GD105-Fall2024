@@ -1,18 +1,18 @@
 Car c;
-Obstacles[] o;
+Cows[] c2;
  
 void setup(){
-  size (600,600);
-  c = new Car (random(width),random(height/2)); 
-  o = new Obstacles[15];
-  for(int i=0;i<o.length;i++){
-      o[i]=new Obstacles(width/2.0,height/1.0,50.0);
-    }
+  size (600,600); 
+  c = new Car (width,height/2.0); 
+  c2 = new Cows[15];
+  for (int i=0;i<c2.length;i++){
+    c2[i]=new Cows(width/1.0,height/1.0,50);
   }
+}
   
 void draw(){
   background (180);
-  
+
   //Draw visual boarder
   stroke(0);
   strokeWeight(10);
@@ -24,8 +24,7 @@ void draw(){
   c.display();
   c.update();
   
-  for(int i=0;i<o.length;i++){
-    o[i].display();
-    o[i].update();
+  for (int i=0;i<c2.length;i++){
+    c2[i].display();
     }
   }

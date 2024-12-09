@@ -10,11 +10,13 @@ float speed;
   }
   //Methods
   void display(){
-    fill(#C5D65D);
+    fill(#717361);
     strokeWeight(3);
     translate(pos.x,pos.y);
     rotate (direction.heading());
-    triangle(50,0,13,6,19,25);   
+    arc(0,50,115,50,49,150);   
+    fill(#0C4C83);
+    arc(0,34,68,41,49,150);
   }
    
   void update(){
@@ -23,7 +25,7 @@ float speed;
     boolean offREdge,offLEdge,offTop,halfwayPoint;
     offREdge = (pos.x>width-50);
     offLEdge = (pos.x<50);
-    offTop = (pos.y<50);
+    offTop = (pos.y<25);
     halfwayPoint =(pos.y>(height/2)-40);
     
     if(offREdge){
@@ -34,7 +36,7 @@ float speed;
       pos.x=50;
     }
     if(offTop){
-      pos.y=50;    
+      pos.y=25;    
     }
     if(halfwayPoint){
       pos.y=(height/2)-40;  
@@ -42,20 +44,24 @@ float speed;
     
     //Key controls
     if (key == 'w'||key=='W' || (key==CODED && keyCode ==UP)){
-        accelerate();
+        pos.y-=5;
     }
     if (key == 's'||key=='S' || (key==CODED && keyCode ==DOWN)){
-        brake();
-    }
+        pos.y+=max(5,0);
+      }
+     if (key==1){
+          brake();
+      }
+    
     if (key == 'a'||key=='A' || (key==CODED && keyCode ==LEFT)){
-      turn(+TAU/360);
+      pos.x-=5;
     }
     if (key == 'd'||key=='D' || (key==CODED && keyCode ==RIGHT)){
-      turn(-TAU/360); 
+      pos.x+=5; 
     }
-    //if(key==ENTER){
-    //  shoot();
-    //}
+    if(key==ENTER){
+      shoot();
+    }
       pos.add(PVector.mult(direction,speed));
   }
   
@@ -66,15 +72,22 @@ float speed;
   void accelerate(){
     speed=min(speed+1.0,3.0);
   }
+  
+  void reverse(){
+    speed=min(-1.0,3.0); 
+  }
+  
   void brake(){
     speed*=0.95;
   }
   
-  //void shoot(){
-  //  stroke(#ff0000);
-  //  strokeWeight(10);
-  //  line(pos.x,pos.y,50*2,50*2);
-  //}
+  
+  
+  void shoot(){
+    stroke(#ff0000);
+    strokeWeight(10);
+    triangle(pos.x,50,pos.y,50,width,height);
+  }
  //void keyPressed(){
  //  if (key ==CODED){
  //    if(keyCode==UP){
