@@ -6,13 +6,13 @@ void setup(){
   c = new Car (width,height/2.0); 
   c2 = new Cows[15];
   for (int i=0;i<c2.length;i++){
-    c2[i]=new Cows(width/1.0,height/1.0,50);
+    c2[i]=new Cows(width/2.0,height/1.1,50);
   }
+
 }
   
 void draw(){
   background (180);
-
   //Draw visual boarder
   stroke(0);
   strokeWeight(10);
@@ -26,5 +26,6 @@ void draw(){
   
   for (int i=0;i<c2.length;i++){
     c2[i].display();
+    c2[i].update();
     }
   }

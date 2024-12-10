@@ -65,18 +65,6 @@ float speed;
       pos.add(PVector.mult(direction,speed));
   }
   
-  void turn(float turnAmt){
-    direction.rotate(turnAmt);
-  }
-  
-  void accelerate(){
-    speed=min(speed+1.0,3.0);
-  }
-  
-  void reverse(){
-    speed=min(-1.0,3.0); 
-  }
-  
   void brake(){
     speed*=0.95;
   }
@@ -84,10 +72,23 @@ float speed;
   
   
   void shoot(){
+    boolean onLeft = pos.x<width/2.0;
+    if (onLeft){
+    fill(#ff0000,40);
     stroke(#ff0000);
-    strokeWeight(10);
-    triangle(pos.x,50,pos.y,50,width,height);
-  }
+    strokeWeight(3);
+    triangle(-7,70,pos.x-392,pos.y+597,width-420,height+168);
+    }
+    
+    boolean onRight=pos.x>width/2.0;
+    if(onRight){
+      fill(#ff0000,40);
+      stroke(#ff0000);
+      strokeWeight(3);          
+      triangle(0,74,pos.x-752,pos.y+597,width-367,height+168);   
+    }
+   }
+  
  //void keyPressed(){
  //  if (key ==CODED){
  //    if(keyCode==UP){
