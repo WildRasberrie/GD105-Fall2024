@@ -1,12 +1,13 @@
   //Properties
 class Car{
 PVector pos,direction;
-float speed; 
+float speed,radius; 
   //Constructors
   Car(float x,float y){
     pos= new PVector (x,y);//setting position
     direction= new PVector (1,0);//heading direction on x-axis
     speed=0.0;//setting initial speed at 0
+    radius=50.0;
   }
   //Methods
   void display(){
@@ -87,8 +88,10 @@ float speed;
       strokeWeight(3);          
       triangle(0,74,pos.x-752,pos.y+597,width-367,height+168);   
     }
-   }
-  
+    
+  }
+
+ 
  //void keyPressed(){
  //  if (key ==CODED){
  //    if(keyCode==UP){
