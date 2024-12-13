@@ -1,7 +1,5 @@
 class Cows{
-
   PVector pos,heading;
-
   float size,speed,rot;
   
   //CONSTRUCTORS
@@ -60,19 +58,29 @@ class Cows{
 
     if (pos.x<25){
       teleport();
-      println("yer");
+      println("you did it!");
     }
     boolean cowBeamed=pos.x<car.pos.x+50&&pos.x>car.pos.x-50&&key==ENTER;
     if(cowBeamed){
       pos.y-=3;
       rot+=(TAU/180.0);
+    }else{
+      if (pos.y<height-160){
+        pos.y+=3;
+        pos.x+=2;
+        rot-=(TAU/180.0);
+      }
+      if(rot<0.0){
+        rot=0.0;
+      }    
     }
     boolean atSpaceShip=(pos.y<=car.pos.y+100);
     if(atSpaceShip){
       size--;
       size=0.0;
-    }  
-       pos.add(heading.fromAngle(0.0).mult(-0.5));
+    }
+        
+       pos.add(heading.fromAngle(0.0).mult(-1.0));
   }
 
   void teleport(){
