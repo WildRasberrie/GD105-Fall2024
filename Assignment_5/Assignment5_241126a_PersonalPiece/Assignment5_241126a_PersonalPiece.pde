@@ -75,91 +75,57 @@ void draw(){
   //line(5,0,5,height/2);
   //line(width-5,0,width-5,height/2);
   
+
   car.display();
   car.update();
   healthBar.display();
   healthBar.update();
- 
-  for(int i=0;i<cows.length;i++){
-      cows[i].display();
-      cows[i].update();
-  }
-  for(int j=0;j<rain.length;j++){
-    rain[j].display();
-    rain[j].update();
-  }
-  
-  for(int k=0;k<clouds.length;k++){
-    clouds[k].display();
-    clouds[k].update();
-    evilClouds[0].update();
-    if(timer[0].isFinished()){
-    evilClouds[0].evilCloud();
-    boolean shipHit=(evilClouds[0].pos.x+10<car.pos.x&&car.pos.x<evilClouds[0].pos.x+20);
-    if (shipHit){
-       car.pos.x=evilClouds[0].pos.x;
-       noStroke();
-       fill(#EDF516,35);
-       circle (car.pos.x-100,car.pos.y-50,200);
-      }
-      
-      newTime -= 50;
-      if(newTime < 0){
-        timer[0].start();
-        newTime = 10000;
-      }
+ //Set Up Rain Display - 1 Min
+    for(int i=0;i<cows.length;i++){
+        cows[i].display();
+        cows[i].update();
     }
-
-    //if (timer[1].isFinished()){
-    //  noLoop();
-    //  redraw();
-    //  timer[1].start();
-    //  time-=100;
-    //}
-    //if(time<0){
-    //  time =60000;
-    //  timer[1].start();
-    //}
-   }
-   fill(0);
+    for(int j=0;j<rain.length;j++){
+      rain[j].display();
+      rain[j].update();
+    }
+    
+    for(int k=0;k<clouds.length;k++){
+      clouds[k].display();
+      clouds[k].update();
+      evilClouds[0].update();
+      if(timer[0].isFinished()){
+      evilClouds[0].evilCloud();
+      boolean shipHit=(evilClouds[0].pos.x+40<car.pos.x&&car.pos.x<evilClouds[0].pos.x+45);
+      if (shipHit){
+         car.pos.x=evilClouds[0].pos.x;
+         noStroke();
+         fill(#EDF516,35);
+         circle (car.pos.x-100,car.pos.y-50,200);
+        }
+        
+        newTime -= 50;
+        if(newTime < 0){
+          timer[0].start();
+          newTime = 10000;
+        }
+      }
+    //Set timer for Sunny display
+    if(timer[1].isFinished()){
+      time -=1;
+      if (time<0){
+        sunny.display();
+        sunny.update();
+        for(int i=0;i<cows.length;i++){
+        cows[i].display();
+        cows[i].update();
+      }
+        timer[1].start();
+        time=60000;
+      }
+     }
+    }
   }
-//void healthBar(){
-//  PVector pos;
-//  PFont impact;
-//  float health = 50;
-//  float maxHealth=100;
-//  float rectWidth=200;
-//  pos= new PVector (car.pos.x,car.pos.y);
-//  impact = loadFont("Impact-24.vlw");
-
-//    //health bar outline 
-//    float drawWidth=(health/maxHealth)*rectWidth;
-//    textFont(impact);
-//    translate (-100,101);
-//    fill(0);
-//    rect(0,4,rectWidth,21);
- 
-//    text("FUEL",+81,1);
-//    fill(#C6042B);//red
-//    rect (98,4,drawWidth,21);
-  
-    //boolean shipHit=(evilClouds[0].pos.x+30<car.pos.x&&car.pos.x<evilClouds[0].pos.x+40);
-    // if (shipHit){
-    //    health-=10;
-    // }
-    //boolean cowsEaten = (count>5);
-    //if (cowsEaten){
-    //  health+=10;
-    //}    
-  //}
-  
-  //void count(){
-  //  cows[0].count();
-  //   //COUNTER
-  // resetMatrix();
-  // translate(400,100);
-  // text("COWS EATEN"+":"+count, 0, 0);
-  //}
   void startGame(){
     fill(0);
     rect(0,0,width,height);
@@ -174,11 +140,6 @@ void draw(){
     text("You Lose!", width/2.0,height/2.0);
 }
 
-void redraw (){
-    car.display();
-    car.update();
-    sunny.display();
-    sunny.update();
-}
+
 
    
