@@ -102,6 +102,7 @@ void draw(){
          noStroke();
          fill(#EDF516,35);
          circle (car.pos.x-100,car.pos.y-50,200);
+         healthBar.loseHealth();
         }
         
         newTime -= 50;

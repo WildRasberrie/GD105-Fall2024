@@ -2,6 +2,7 @@ class HealthBar{
   PVector pos;
   PFont impact;
   float health = 25;
+  float drawWidth;
   float maxHealth=50;
   float rectWidth=100;
   int count;
@@ -22,20 +23,21 @@ class HealthBar{
     rect (100,4,-drawWidth,21);
     resetMatrix();
     text("COWS EATEN"+":"+count, 400, 200);
+    println(drawWidth);
   }
   void update (){
-    
-    boolean shipHit=(evilClouds[0].pos.x+20<pos.x&&pos.x<evilClouds[0].pos.x+35);
-    if (shipHit){
-     health-=10;
-    }  
-    boolean cowsEaten = (cows[0].pos.y>car.pos.y&&key==ENTER);
-    if (cowsEaten){
-      count();
-      health+=10;
-    } 
+    boolean maxFuel = (drawWidth>100);
+    if (maxFuel){
+      drawWidth=100; 
+    }
   }
   void count(){
-    count++;
+    count+=1;
+  }
+  void addHealth(){
+    health+=10;
+  }
+  void loseHealth(){
+     health-=10;
   }
 }
