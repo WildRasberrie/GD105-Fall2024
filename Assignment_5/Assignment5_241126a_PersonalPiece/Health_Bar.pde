@@ -23,10 +23,10 @@ class HealthBar{
     rect (100,4,-drawWidth,21);
     resetMatrix();
     text("COWS EATEN"+":"+count, 400, 200);
-    println(drawWidth);
+    println(-drawWidth);
   }
   void update (){
-    boolean maxFuel = (drawWidth>100);
+    boolean maxFuel = (-drawWidth>-100);
     if (maxFuel){
       drawWidth=100; 
     }
