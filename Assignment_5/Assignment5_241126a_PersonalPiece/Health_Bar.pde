@@ -1,27 +1,41 @@
 class HealthBar{
   PVector pos;
+  PFont impact;
+  float health = 25;
+  float maxHealth=50;
+  float rectWidth=100;
+  int count;
   
   HealthBar(float x, float y){
     pos= new PVector (x,y);
+    impact = loadFont("Impact-24.vlw");
   }
   void display (){
     //health bar outline 
-    translate (pos.x,pos.y);
+    float drawWidth=(health/maxHealth);
+    translate (-64,95);
     fill(0);
-    rect(0,0,150,50);
-    text("FUEL",pos.x+75,pos.y-50);
+    rect(0,4,rectWidth,21);
+    textFont(impact);
+    text("FUEL",+48,2);
+    fill(#C6042B);//red
+    rect (100,4,-drawWidth,21);
+    resetMatrix();
+    text("COWS EATEN"+":"+count, 400, 200);
   }
   void update (){
-    //boolean shipHit=((dist(lightning().pos.x,clouds[0].lightning().pos.y,
-    //                car.pos.x,car.pos.y)<25)||(dist(sunny.birds().pos.x,sunny.birds().pos.y,
-    //                car.pos.x,car.pos.y)<25));
-    //if (shipHit){
-    //  fill(#C6042B);//red
-    //  rect (-50,0,150,50);
-    //}else{
-    //  fill(#C6042B);//red
-    //  rect (0,0,150,50);
-    //}   
+    
+    boolean shipHit=(evilClouds[0].pos.x+20<pos.x&&pos.x<evilClouds[0].pos.x+35);
+    if (shipHit){
+     health-=10;
+    }  
+    boolean cowsEaten = (cows[0].pos.y>car.pos.y&&key==ENTER);
+    if (cowsEaten){
+      count();
+      health+=10;
+    } 
   }
-
+  void count(){
+    count++;
+  }
 }

@@ -19,8 +19,6 @@ class Clouds {
     stroke(140);
     translate(pos.x, pos.y);
     ellipse (-33, -60, 200, size);
-    triangle(pos.x,pos.y,pos.x+12,pos.y+85,pos.x+103,pos.y+height/2.1);
-    triangle(pos.x,pos.y,pos.x+-116,pos.y-106,pos.x+50,pos.y+0); 
   }
 
   void update() {
@@ -38,39 +36,31 @@ class Clouds {
   void teleport() {
     pos.x=(width);
   }
- void lightning() {
-    //lightning
-    stroke(#EDF516);
-    strokeWeight(10);
-    boolean onRightside,onLeftside;
-    onRightside = (pos.x>width/2.0);
-    onLeftside = (pos.x<width/2.0);
-    if(onLeftside){
-      fill(#EDF516);
-      triangle(pos.x,pos.y,pos.x-80,pos.y-100,pos.x,pos.y+height/2.0);
-      triangle(pos.x,pos.y,pos.x+49,pos.y-10,pos.x+44,pos.y+61);
-    }
-    if(onRightside){
-      fill(#EDF516);
-      triangle(pos.x,pos.y,pos.x+12,pos.y+85,pos.x+103,pos.y+height/2.1);
-      triangle(pos.x,pos.y,pos.x-116,pos.y-106,pos.x+50,pos.y+52); 
-      println(pos.x+50);
-    }
-  }
   void evilCloud() {
     resetMatrix();
     translate(pos.x, pos.y);
-    fill(137);
-    stroke(100);
-    ellipse (0, -14, 196, size);
-    
     if (timer[0].isFinished()){
       ang1=radians(angle1);
       angle1 += 2;
       pos.x= (pos.x+cos(ang1));
-      
-    }else{
-      pos.x=pos.x;
+      stroke(#EDF516);
+      strokeWeight(10);
+      fill(#EDF516);
+      boolean onLside=(0<pos.x&&pos.x<width/3.4);
+      boolean onRside=(pos.x>width/3.3||pos.x>width);
+      if (onLside){
+        triangle(pos.x+27,pos.y-51,pos.x+-35,pos.y-137,pos.x-2,pos.y+height/40.4);
+        triangle(pos.x,pos.y,pos.x-13,pos.y+213,pos.x+24,pos.y+61);
+      }
+      if (onRside){
+        triangle(pos.x-169,pos.y-51,pos.x-272,pos.y-119,pos.x-153,pos.y+height/40.4);
+        triangle(pos.x-145,pos.y,pos.x-115,pos.y+213,pos.x-97,pos.y+61);
+      }else{
+        pos.x=pos.x;
   }
+    fill(137);
+    stroke(100);
+    ellipse (70, -14, 266, size);
+   }    
  }
 }

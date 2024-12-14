@@ -1,10 +1,11 @@
 Car car;
 Clouds[] clouds;
 Clouds[] evilClouds;
+Clouds[] lightning;
 Cows[] cows;
+HealthBar healthBar;
 Rain[] rain;
 Sunny sunny;
-HealthBar healthBar;
 Timer[] timer;
 int time=60000;//1 minute timer 
 int newTime = 10000;//10 secs timer
@@ -14,6 +15,7 @@ void setup(){
   sunny = new Sunny (width,height,100);
   car = new Car (width,height/2.0);
   timer= new Timer[4];
+  healthBar= new HealthBar(width,height);
   for (int h=0;h<timer.length;h++){
     timer[0]= new Timer(newTime);//10 secs in millis 
     timer[1]= new Timer(time);//1 minute timer in millis 
@@ -22,7 +24,7 @@ void setup(){
   timer[1].start();
     cows= new Cows[20];
   for(int i=0;i<cows.length;i++){
-      cows[1] = new Cows (width/1.5,height/1.2,0.47);
+      cows[0] = new Cows (width/1.5,height/1.2,0.47);
       cows[1]=new Cows (width/1.0,height/1.0,0.47);
       cows[2]=new Cows (width/1.75,height/1.0,0.47);
       cows[3]=new Cows (width/2.5,height/1.4,0.47);
@@ -47,11 +49,11 @@ void setup(){
   for(int k=0;k<clouds.length;k++){
     clouds[k]=new Clouds(k*210,height/6.0,100.0);
   }
-  evilClouds= new Clouds[2];
+  evilClouds= new Clouds[1];
   for(int k=0;k<evilClouds.length;k++){
     evilClouds[0]=new Clouds(k*200,height/6.0,100.0);
-    evilClouds[1]=new Clouds(random(width),height/6.0,100.0);
   }
+  //count=count();
 }
   
 void draw(){
@@ -62,6 +64,7 @@ void draw(){
   fill(#2D8647);
   noStroke();
   rect(0,height-150, width, height);
+ 
 
   //Draw visual boarder
   //stroke(0);
@@ -74,11 +77,13 @@ void draw(){
   
   car.display();
   car.update();
+  healthBar.display();
+  healthBar.update();
+ 
   for(int i=0;i<cows.length;i++){
       cows[i].display();
       cows[i].update();
   }
-  if (time<=60000){
   for(int j=0;j<rain.length;j++){
     rain[j].display();
     rain[j].update();
@@ -88,29 +93,73 @@ void draw(){
     clouds[k].display();
     clouds[k].update();
     evilClouds[0].update();
-    evilClouds[0].evilCloud();
     if(timer[0].isFinished()){
-      clouds[0].lightning();
-      evilClouds[0].evilCloud();
+    evilClouds[0].evilCloud();
+    boolean shipHit=(evilClouds[0].pos.x+10<car.pos.x&&car.pos.x<evilClouds[0].pos.x+20);
+    if (shipHit){
+       car.pos.x=evilClouds[0].pos.x;
+       noStroke();
+       fill(#EDF516,35);
+       circle (car.pos.x-100,car.pos.y-50,200);
+      }
+      
       newTime -= 50;
       if(newTime < 0){
         timer[0].start();
         newTime = 10000;
       }
     }
-    if (timer[1].isFinished()){
-      noLoop();
-      redraw();
-      timer[1].start();
-      time-=100;
-    }
-    if(time<0){
-      time =60000;
-      timer[1].start();
-    }
-   } 
+
+    //if (timer[1].isFinished()){
+    //  noLoop();
+    //  redraw();
+    //  timer[1].start();
+    //  time-=100;
+    //}
+    //if(time<0){
+    //  time =60000;
+    //  timer[1].start();
+    //}
+   }
+   fill(0);
   }
-}
+//void healthBar(){
+//  PVector pos;
+//  PFont impact;
+//  float health = 50;
+//  float maxHealth=100;
+//  float rectWidth=200;
+//  pos= new PVector (car.pos.x,car.pos.y);
+//  impact = loadFont("Impact-24.vlw");
+
+//    //health bar outline 
+//    float drawWidth=(health/maxHealth)*rectWidth;
+//    textFont(impact);
+//    translate (-100,101);
+//    fill(0);
+//    rect(0,4,rectWidth,21);
+ 
+//    text("FUEL",+81,1);
+//    fill(#C6042B);//red
+//    rect (98,4,drawWidth,21);
+  
+    //boolean shipHit=(evilClouds[0].pos.x+30<car.pos.x&&car.pos.x<evilClouds[0].pos.x+40);
+    // if (shipHit){
+    //    health-=10;
+    // }
+    //boolean cowsEaten = (count>5);
+    //if (cowsEaten){
+    //  health+=10;
+    //}    
+  //}
+  
+  //void count(){
+  //  cows[0].count();
+  //   //COUNTER
+  // resetMatrix();
+  // translate(400,100);
+  // text("COWS EATEN"+":"+count, 0, 0);
+  //}
   void startGame(){
     fill(0);
     rect(0,0,width,height);
@@ -126,10 +175,10 @@ void draw(){
 }
 
 void redraw (){
-    sunny.display();
-    sunny.update();
     car.display();
     car.update();
+    sunny.display();
+    sunny.update();
 }
 
    
