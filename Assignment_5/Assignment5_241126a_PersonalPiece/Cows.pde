@@ -64,7 +64,6 @@ class Cows {
     if (cowBeamed) {
       pos.y-=3;
       rot+=(TAU/180.0);
-      healthBar.addHealth();
     } else {
       if (pos.y<height-160) {
         pos.y+=3;
@@ -79,6 +78,8 @@ class Cows {
     if (atSpaceShip) {
       size--;
       size=0.0;
+      pos.x=10000;
+      healthBar.addHealth();
       healthBar.count();
     }
 

@@ -62,6 +62,7 @@ class Car{
       }
       if(key==ENTER){
         shoot();
+        println("working");
       }
         pos.add(PVector.mult(direction,speed));
     }
@@ -73,7 +74,7 @@ class Car{
     
     
     void shoot(){
-      boolean onLeft = pos.x<width/2.0;
+      boolean onLeft = pos.x<width/2.0&&pos.x<0;
       if (onLeft){
       fill(#ff0000,40);
       stroke(#ff0000);
@@ -81,7 +82,7 @@ class Car{
       triangle(-7,70,pos.x-392,pos.y+597,width-420,height+168);
       }
       
-      boolean onRight=pos.x>width/2.0;
+      boolean onRight=pos.x>width/2.0&&pos.x>width-50;
       if(onRight){
         fill(#ff0000,40);
         stroke(#ff0000);

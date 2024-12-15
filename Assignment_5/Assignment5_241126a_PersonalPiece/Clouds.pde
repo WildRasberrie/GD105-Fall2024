@@ -53,8 +53,8 @@ class Clouds {
         triangle(pos.x,pos.y,pos.x-13,pos.y+213,pos.x+24,pos.y+61);
       }
       if (onRside){
-        triangle(pos.x-169,pos.y-51,pos.x-272,pos.y-119,pos.x-153,pos.y+height/40.4);
-        triangle(pos.x-145,pos.y,pos.x-115,pos.y+213,pos.x-97,pos.y+61);
+        triangle(pos.x-200,pos.y-51,pos.x-220,pos.y-119,pos.x-153,pos.y+height/40.4);
+        triangle(pos.x-200,pos.y,pos.x-165,pos.y+213,pos.x-97,pos.y+61);
       }else{
         pos.x=pos.x;
   }

@@ -1,10 +1,11 @@
 class HealthBar{
   PVector pos;
   PFont impact;
-  float health = 25;
-  float drawWidth;
-  float maxHealth=50;
-  float rectWidth=100;
+  float health =0.0;
+  float drawWidth=max(0,100);
+  float maxHealth=100.0;
+  float minHealth=0.0;
+  float rectWidth=100.0;
   int count;
   
   HealthBar(float x, float y){
@@ -23,21 +24,36 @@ class HealthBar{
     rect (100,4,-drawWidth,21);
     resetMatrix();
     text("COWS EATEN"+":"+count, 400, 200);
-    println(-drawWidth);
+    println("health:"+health+" max Health: "+maxHealth+"DrawWidth:"+drawWidth);
   }
   void update (){
-    boolean maxFuel = (-drawWidth>-100);
-    if (maxFuel){
-      drawWidth=100; 
+    boolean fullHealth=(drawWidth>100.0);
+    boolean noHealth= (drawWidth<0.0);
+    boolean healthGrowth=(drawWidth>100);
+    boolean healthLoss=(drawWidth<100);
+    if (healthGrowth){
+      addHealth();
+    }
+
+    if (fullHealth){
+      drawWidth=maxHealth;
+      health-=500;
+    }
+    if (noHealth){
+      drawWidth=minHealth;
+      fill(70,25);
+      for (int i=0;i<4;i++){
+        circle(pos.x+100,pos.y,100);
+      }
     }
   }
   void count(){
-    count+=1;
+    count++;
   }
   void addHealth(){
-    health+=10;
+    health+=1000;
   }
   void loseHealth(){
-     health-=10;
+     health-=2000;
   }
 }
