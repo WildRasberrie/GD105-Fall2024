@@ -44,6 +44,9 @@ class Car{
       }
       
       //Key controls
+      if (key==ENTER){
+        shoot();
+      }
       if (key == 'w'||key=='W' || (key==CODED && keyCode ==UP)){
           pos.y-=5;
       }

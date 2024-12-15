@@ -64,7 +64,6 @@ class Cows {
     if (cowBeamed) {
       pos.y-=3;
       rot+=(TAU/180.0);
-      car.shoot();
     } else {
       if (pos.y<height-160) {
         pos.y+=3;

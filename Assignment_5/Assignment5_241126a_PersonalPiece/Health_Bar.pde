@@ -25,9 +25,9 @@ class HealthBar{
     fill(#C6042B);//red
     rect (100,4,-drawWidth,21);
     resetMatrix();
-    text("COWS EATEN"+":"+count, 400, 200);
+    text("COWS EATEN"+":"+count, 500, 200);
     fill(0);
-    text("FUEL AVAILABLE"+":"+int(drawWidth)+"%",400,150);
+    text("FUEL AVAILABLE"+":"+int(drawWidth)+"%",500,150);
     //println("health:"+health+" max Health: "+maxHealth+"DrawWidth:"+drawWidth);
   }
   void update(){

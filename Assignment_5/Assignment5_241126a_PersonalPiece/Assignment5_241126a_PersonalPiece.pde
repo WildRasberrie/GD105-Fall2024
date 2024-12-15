@@ -191,7 +191,6 @@ void draw(){
   if (weatherTracker==1){
     sunny.display();
     sunny.update();
-    car.display();
     healthBar.display();
     noStroke();
     for(int g=0;g<birds.length;g++){;
@@ -217,6 +216,7 @@ void draw(){
       cows[i].update();
    }
   }
+ healthBar.update();
  }
 }
   void startGame(){
@@ -231,6 +231,8 @@ void draw(){
     textSize(30);
     textAlign(CENTER);
     text("Press any key to Start", 300,500);
+    textSize(20);
+    text("\n\n RULES:\n ENTER = BEAM COWS",300,500);
  
     //SPACESHIP
      ang1=radians(angle1);
