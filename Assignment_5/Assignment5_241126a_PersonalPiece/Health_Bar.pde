@@ -1,12 +1,14 @@
 class HealthBar{
   PVector pos;
   PFont impact;
-  float health =0.0;
+  float health =1.0;
   float drawWidth=max(0,100);
   float maxHealth=100.0;
   float minHealth=0.0;
   float rectWidth=100.0;
   int count;
+  float ang1,angle1;
+  float y;
   
   HealthBar(float x, float y){
     pos= new PVector (x,y);
@@ -24,29 +26,31 @@ class HealthBar{
     rect (100,4,-drawWidth,21);
     resetMatrix();
     text("COWS EATEN"+":"+count, 400, 200);
+    fill(0);
+    text("FUEL AVAILABLE"+":"+int(drawWidth)+"%",400,150);
     println("health:"+health+" max Health: "+maxHealth+"DrawWidth:"+drawWidth);
   }
-  void update (){
-    boolean fullHealth=(drawWidth>100.0);
-    boolean noHealth= (drawWidth<0.0);
-    boolean healthGrowth=(drawWidth>100);
-    boolean healthLoss=(drawWidth<100);
-    if (healthGrowth){
-      addHealth();
+  void update(){
+    if (health >10000){//if at 100% health
+      health=10000;
     }
-
-    if (fullHealth){
-      drawWidth=maxHealth;
-      health-=500;
+    if(health<1){//if at 0% heallth
+      health=0;
     }
-    if (noHealth){
-      drawWidth=minHealth;
-      fill(70,25);
-      for (int i=0;i<4;i++){
-        circle(pos.x+100,pos.y,100);
-      }
+    if (health<25000){//less than quarter health
+     angle1 += 2.0;
+     ang1=radians(angle1);
+     y= (pos.y+sin(ang1));
+     fill(80,100);
+     circle(car.pos.x+106,car.pos.y+y,86);
     }
+    if(health==0.0){//if health 0%
+      car.fallingShip();
+      screen=2;
+    }
+    
   }
+  
   void count(){
     count++;
   }
@@ -54,6 +58,6 @@ class HealthBar{
     health+=1000;
   }
   void loseHealth(){
-     health-=2000;
+     health-=30;
   }
 }

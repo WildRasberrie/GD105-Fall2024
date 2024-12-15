@@ -60,10 +60,6 @@ class Car{
       if (key == 'd'||key=='D' || (key==CODED && keyCode ==RIGHT)){
         pos.x+=5; 
       }
-      if(key==ENTER){
-        shoot();
-        println("working");
-      }
         pos.add(PVector.mult(direction,speed));
     }
     
@@ -88,10 +84,12 @@ class Car{
         stroke(#ff0000);
         strokeWeight(3);          
         triangle(0,74,pos.x-752,pos.y+597,width-367,height+168);   
-      }
-      
+      }  
     }
-  
+   void fallingShip(){
+     pos.y=height/2-40;
+     pos.y+=10;
+   }
    
    //void keyPressed(){
    //  if (key ==CODED){

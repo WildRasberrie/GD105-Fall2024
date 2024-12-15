@@ -64,6 +64,7 @@ class Cows {
     if (cowBeamed) {
       pos.y-=3;
       rot+=(TAU/180.0);
+      car.shoot();
     } else {
       if (pos.y<height-160) {
         pos.y+=3;
@@ -79,10 +80,10 @@ class Cows {
       size--;
       size=0.0;
       pos.x=10000;
-      healthBar.addHealth();
       healthBar.count();
+      healthBar.addHealth();
     }
-
+    
     pos.add(heading.fromAngle(0.0).mult(-1.0));
   }
 
