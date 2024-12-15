@@ -55,7 +55,6 @@ void setup(){
       cows[17]=new Cows (width/1.0+100,height/1.4,0.47);
       cows[18]=new Cows (width/3.0+100,height/1.2,0.47);
       cows[19]=new Cows (width/1.75+100,height/1.4,0.47);
-      
   }
   rain= new Rain[10];
   for(int j=0;j<rain.length;j++){
@@ -149,8 +148,8 @@ void draw(){
 /****************************************/
      if (weatherTracker ==0){
       for(int i=0;i<cows.length;i++){
-          cows[i].display();
-          cows[i].update();
+       cows[i].display();
+       cows[i].update();
       }
       for(int j=0;j<rain.length;j++){
         rain[j].display();

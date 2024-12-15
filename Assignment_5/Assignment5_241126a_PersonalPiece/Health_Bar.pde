@@ -28,7 +28,7 @@ class HealthBar{
     text("COWS EATEN"+":"+count, 400, 200);
     fill(0);
     text("FUEL AVAILABLE"+":"+int(drawWidth)+"%",400,150);
-    println("health:"+health+" max Health: "+maxHealth+"DrawWidth:"+drawWidth);
+    //println("health:"+health+" max Health: "+maxHealth+"DrawWidth:"+drawWidth);
   }
   void update(){
     if (health >10000){//if at 100% health

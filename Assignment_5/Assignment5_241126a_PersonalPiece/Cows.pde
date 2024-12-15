@@ -58,7 +58,7 @@ class Cows {
 
     if (pos.x<25) {
       teleport();
-      println("you did it!");
+      //println("you did it!");
     }
     boolean cowBeamed=pos.x<car.pos.x+50&&pos.x>car.pos.x-50&&key==ENTER;
     if (cowBeamed) {
