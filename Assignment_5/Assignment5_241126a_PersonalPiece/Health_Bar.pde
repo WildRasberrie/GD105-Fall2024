@@ -46,7 +46,6 @@ class HealthBar{
     }
     if(health==0.0){//if health 0%
       car.fallingShip();
-      screen=2;
     }
     
   }

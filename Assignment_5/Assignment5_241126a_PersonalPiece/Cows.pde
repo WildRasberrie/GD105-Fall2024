@@ -74,7 +74,7 @@ class Cows {
         rot=0.0;
       }
     }
-    boolean atSpaceShip=(pos.y<=car.pos.y+100);
+    boolean atSpaceShip=(pos.y<=car.pos.y+100&&key==ENTER);
     if (atSpaceShip) {
       size--;
       size=0.0;

@@ -33,7 +33,7 @@ void setup(){
    }
   timer[0].start();
   timer[1].start();
-    cows= new Cows[20];
+  cows= new Cows[20];
   for(int i=0;i<cows.length;i++){
       cows[0] = new Cows (width/1.5,height/1.2,0.47);
       cows[1]=new Cows (width/1.0,height/1.0,0.47);
@@ -124,6 +124,10 @@ void draw(){
 /******************************************/
   if(screen==2){
     endGame();
+  }
+  boolean shipFallen= (car.pos.y>height-200);
+  if (shipFallen){
+    screen=2;
   }
 /******************************************
       GAME SCREEN
