@@ -76,11 +76,11 @@ class Car{
       pushMatrix();
       boolean onLeft = pos.x<width/2.0&&pos.x<0;
       if (onLeft){
-      translate(car.pos.x,car.pos.y);
+      translate(pos.x,pos.y);
       fill(#ff0000,40);
       stroke(#ff0000);
       strokeWeight(3);
-      triangle(car.pos.x,car.pos.y,car.pos.x-442,car.pos.y+295,width-422,height+168);
+      triangle(pos.x-200,height,pos.x,pos.y,pos.x+200,height);
       }
       
       boolean onRight=pos.x>width/2.0&&pos.x>width-50;
@@ -88,7 +88,7 @@ class Car{
         fill(#ff0000,40);
         stroke(#ff0000);
         strokeWeight(3);          
-        triangle(car.pos.x,car.pos.y,car.pos.x-58,car.pos.y+6,width-531,height+168);   
+        triangle(pos.x-200,height,pos.x,pos.y,pos.x+200,height);   
       } 
       println(car.pos.x,car.pos.y);
       popMatrix();
