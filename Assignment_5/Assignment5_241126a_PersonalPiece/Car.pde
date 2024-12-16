@@ -2,6 +2,7 @@
 class Car{
   PVector pos,direction,vel,acc;
   float speed,radius; 
+
     //Constructors
     Car(float x,float y){
       pos= new PVector (x,y);//setting position
@@ -46,21 +47,8 @@ class Car{
       }
       
       //Key controls
-      if (key == 'w'||key=='W' || (key==CODED && keyCode ==UP)){
-          pos.y-=5;
-      }
-      if (key == 's'||key=='S' || (key==CODED && keyCode ==DOWN)){
-          pos.y+=max(5,0);
-        }
-       if (key==1){
-            brake();
-        }
-      
-      if (key == 'a'||key=='A' || (key==CODED && keyCode ==LEFT)){
-        pos.x-=5;
-      }
-      if (key == 'd'||key=='D' || (key==CODED && keyCode ==RIGHT)){
-        pos.x+=5; 
+      if(playerControl){
+        ButtonPresses();
       }
         pos.add(PVector.mult(direction,speed));
         
@@ -73,30 +61,39 @@ class Car{
     
     
     void shoot(){
-      pushMatrix();
-      boolean onLeft = pos.x<width/2.0&&pos.x<0;
-      if (onLeft){
+      resetMatrix();
+      println("YEERRR");
       translate(pos.x,pos.y);
       fill(#ff0000,40);
       stroke(#ff0000);
       strokeWeight(3);
-      triangle(pos.x-200,height,pos.x,pos.y,pos.x+200,height);
-      }
+      triangle(-342,height,0,74,+208,height);
       
-      boolean onRight=pos.x>width/2.0&&pos.x>width-50;
-      if(onRight){
-        fill(#ff0000,40);
-        stroke(#ff0000);
-        strokeWeight(3);          
-        triangle(pos.x-200,height,pos.x,pos.y,pos.x+200,height);   
-      } 
-      println(car.pos.x,car.pos.y);
-      popMatrix();
+      //println(car.pos.x,car.pos.y);
       resetMatrix();
     }
    void fallingShip(){
      pos.add(vel);
      vel.add(acc);
+   }
+   
+   void ButtonPresses(){
+     if (key == 'w'||key=='W' || (key==CODED && keyCode ==UP)){
+          pos.y-=5;
+      }
+      if (key == 's'||key=='S' || (key==CODED && keyCode ==DOWN)){
+          pos.y+=max(5,0);
+      }
+      if (key==1){
+           brake();
+      }
+      
+      if (key == 'a'||key=='A' || (key==CODED && keyCode ==LEFT)){
+        pos.x-=5;
+      }
+      if (key == 'd'||key=='D' || (key==CODED && keyCode ==RIGHT)){
+        pos.x+=5; 
+      }
    }
    
    //void keyPressed(){

@@ -15,6 +15,7 @@ int time=60000;//1 minute timer
 int newTime = 10000;//10 secs timer
 int weatherTracker,screen;
 float ang1,angle1;
+boolean playerControl = true;
 
 void setup(){
   size (600,600);
@@ -58,12 +59,14 @@ void setup(){
   }
   rain= new Rain[10];
   for(int j=0;j<rain.length;j++){
-    rain[0]= new Rain (random(width), random(height),20);
+    /*rain[0]= new Rain (random(width), random(height),20);
     rain[1]= new Rain (random(width), random(height/2.0),20);
     rain[2]= new Rain (random(width), random(height/1.5),20);
     rain[3]= new Rain (random(width), random(height/1.2),20);
     rain[4]= new Rain (random(width), random(height/3.0),20); 
     rain[j]= new Rain (random(width),random(height/3.5),20);
+    */
+    rain[j] = new Rain(random(width), random(height/2.0), 20);
   }
   clouds= new Clouds[3];
   for(int k=0;k<clouds.length;k++){
@@ -110,9 +113,9 @@ void draw(){
   //line(width-5,0,width-5,height/2);
   car.display();
   car.update();
-
   healthBar.display();
   healthBar.update();
+
   /******************************************
       START SCREEN
 /******************************************/
@@ -172,18 +175,26 @@ void draw(){
         COLLISIONS 
 /****************************************/          
         boolean shipHit=(evilClouds[0].pos.x-100<car.pos.x||car.pos.x<evilClouds[0].pos.x+20);
+        
+        ////println(playerControl);
+        /*if(shipHit){
+          playerControl = true;
+        } else {
+          playerControl = false;
+        }*/
         if (shipHit){
+           playerControl = false;
            car.pos.x=evilClouds[0].pos.x+70;
            noStroke();
            fill(#EDF516,35);
            circle (car.pos.x-250,car.pos.y-75,200);
            healthBar.loseHealth();
-           keyPressed=false;
           }
           popMatrix();
           resetMatrix();
           newTime -= 50;
           if(newTime < 0){
+            playerControl = true;
             timer[0].start();
             newTime = 10000;
           }
@@ -223,7 +234,7 @@ void draw(){
   }
   if (key==ENTER){
    car.shoot(); 
-   println("BEAM");
+   //println("BEAM");
   }
  }
 }

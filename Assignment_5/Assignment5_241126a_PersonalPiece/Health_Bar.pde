@@ -17,7 +17,7 @@ class HealthBar{
   void display (){
     //health bar outline 
     float drawWidth=(health/maxHealth);
-    translate (-64,95);
+    translate (-51,-16);
     fill(0);
     rect(0,4,rectWidth,21);
     textFont(impact);
@@ -25,10 +25,12 @@ class HealthBar{
     fill(#C6042B);//red
     rect (100,4,-drawWidth,21);
     resetMatrix();
+    
     text("COWS EATEN"+":"+count, 500, 200);
     fill(0);
     text("FUEL AVAILABLE"+":"+int(drawWidth)+"%",500,150);
-    //println("health:"+health+" max Health: "+maxHealth+"DrawWidth:"+drawWidth);
+    resetMatrix();
+    ////println("health:"+health+" max Health: "+maxHealth+"DrawWidth:"+drawWidth);
   }
   void update(){
     if (health >10000){//if at 100% health

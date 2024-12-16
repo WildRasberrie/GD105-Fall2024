@@ -1,11 +1,13 @@
 class Cows {
-  PVector pos, heading;
+  PVector pos, startPos, heading;
   float size, speed, rot;
   int count;
+  
 
   //CONSTRUCTORS
   Cows(float x, float y, float s) {
     pos=new PVector(x, y);
+    startPos = pos;
     heading=PVector.fromAngle(0.0).mult(0.05);
     size=s;
     speed=0.0;
@@ -58,11 +60,15 @@ class Cows {
 
     if (pos.x<25) {
       teleport();
-      //println("you did it!");
+      ////println("you did it!");
     }
     boolean cowBeamed=pos.x<car.pos.x+50&&pos.x>car.pos.x-50&&key==ENTER;
     if (cowBeamed) {
-      pos.y-=3;
+      //pos.y-=3;
+      PVector target = new PVector(car.pos.x - pos.x, car.pos.y - pos.y);
+      target.normalize(); 
+      pos.x += target.x * 5; //sets speed
+      pos.y += target.y * 5;
       rot+=(TAU/180.0);
     } else {
       if (pos.y<height-160) {
@@ -76,9 +82,10 @@ class Cows {
     }
     boolean atSpaceShip=(pos.y<=car.pos.y+100&&key==ENTER);
     if (atSpaceShip) {
-      size--;
-      size=0.0;
-      pos.x=10000;
+      //size--;
+      //size=0.0;
+      rot = 0;
+      pos = new PVector(width + random(500), random(450, 580));
       healthBar.count();
       healthBar.addHealth();
     }

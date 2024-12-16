@@ -37,6 +37,7 @@ class Rain{
     }
     
     void teleport(){
+      pos.x = random(width);
       pos.y=50;
     } 
 }
