@@ -46,9 +46,6 @@ class Car{
       }
       
       //Key controls
-      if (key==ENTER){
-        shoot();
-      }
       if (key == 'w'||key=='W' || (key==CODED && keyCode ==UP)){
           pos.y-=5;
       }
@@ -66,6 +63,7 @@ class Car{
         pos.x+=5; 
       }
         pos.add(PVector.mult(direction,speed));
+        
     }
     
     void brake(){
@@ -75,12 +73,14 @@ class Car{
     
     
     void shoot(){
+      pushMatrix();
       boolean onLeft = pos.x<width/2.0&&pos.x<0;
       if (onLeft){
+      translate(car.pos.x,car.pos.y);
       fill(#ff0000,40);
       stroke(#ff0000);
       strokeWeight(3);
-      triangle(-7,70,pos.x-392,pos.y+597,width-420,height+168);
+      triangle(car.pos.x,car.pos.y,car.pos.x-442,car.pos.y+295,width-422,height+168);
       }
       
       boolean onRight=pos.x>width/2.0&&pos.x>width-50;
@@ -88,8 +88,11 @@ class Car{
         fill(#ff0000,40);
         stroke(#ff0000);
         strokeWeight(3);          
-        triangle(0,74,pos.x-752,pos.y+597,width-367,height+168);   
+        triangle(car.pos.x,car.pos.y,car.pos.x-58,car.pos.y+6,width-531,height+168);   
       } 
+      println(car.pos.x,car.pos.y);
+      popMatrix();
+      resetMatrix();
     }
    void fallingShip(){
      pos.add(vel);

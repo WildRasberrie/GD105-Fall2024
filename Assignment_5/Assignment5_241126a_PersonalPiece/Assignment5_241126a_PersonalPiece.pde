@@ -176,8 +176,9 @@ void draw(){
            car.pos.x=evilClouds[0].pos.x+70;
            noStroke();
            fill(#EDF516,35);
-           circle (car.pos.x-150,car.pos.y-75,200);
+           circle (car.pos.x-250,car.pos.y-75,200);
            healthBar.loseHealth();
+           keyPressed=false;
           }
           popMatrix();
           resetMatrix();
@@ -220,7 +221,10 @@ void draw(){
       cows[i].update();
    }
   }
- healthBar.update();
+  if (key==ENTER){
+   car.shoot(); 
+   println("BEAM");
+  }
  }
 }
   void startGame(){
