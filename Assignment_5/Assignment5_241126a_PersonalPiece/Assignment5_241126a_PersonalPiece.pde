@@ -137,7 +137,7 @@ void draw(){
   }
   if (screen == 1){
 /****************************************
-        WEATHER TRACKER 
+        WEATHER TRACKER(NOT  IMPLEMENTED)
 /****************************************
     //if(timer[1].isFinished()){
     //  if(weatherTracker < 2){
@@ -191,7 +191,7 @@ void draw(){
       }
   }
  /****************************************
-         SUNNY DISPLAY 
+         SUNNY DISPLAY(NOT  IMPLEMENTED)
 /****************************************/
   if (weatherTracker==1){
     sunny.display();
@@ -208,7 +208,7 @@ void draw(){
    }
   }
  /****************************************
-        NIGHT DISPLAY
+        NIGHT DISPLAY(NOT  IMPLEMENTED)
 /****************************************/
   if (weatherTracker==2){
     night.display();
